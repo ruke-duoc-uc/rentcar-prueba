@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Build Docker image
-      run: docker build -t /rentcar-back:latest .
+      run: docker build -t rukeduoc/rentcar-back:latest .
 
     - name: Checkout del codigo
       uses: actions/checkout@v4
