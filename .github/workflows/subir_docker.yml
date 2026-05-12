@@ -19,7 +19,7 @@ jobs:
         password: ${{secrets.DOCKERHUB_TOKEN}}
   
     - name: Push Docker image
-      run: docker push tuusuario/rentcar-back:latest
+      run: docker push rukeduoc/rentcar-back:latest
   
     - name: Contruir y subir imagen
       uses: docker/build-push-action@v5
