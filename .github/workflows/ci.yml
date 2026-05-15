@@ -77,3 +77,4 @@ jobs:
            -Dsonar.projectKey=${PROJECT_KEY_SONAR} \
            -Dsonar.organization=${ORGANIZATION_SONAR} \
            -Dsonar.login=${SONAR_TOKEN}
+           

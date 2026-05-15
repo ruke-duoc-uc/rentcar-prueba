@@ -8,7 +8,7 @@ jobs:
     steps:
     - name: Checkout del codigo
       uses: actions/checkout@v4
-      
+
     - name: Build Docker image
       run: docker build -t rukeduoc/rentcar-back:latest .
 
@@ -20,3 +20,4 @@ jobs:
 
     - name: Push Docker image
       run: docker push rukeduoc/rentcar-back:latest
+      
