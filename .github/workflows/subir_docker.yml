@@ -6,9 +6,6 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     steps:
-    - name: Build Docker image
-      run: docker build -t rukeduoc/rentcar-back:latest .
-
     - name: Checkout del codigo
       uses: actions/checkout@v4
 
@@ -17,13 +14,10 @@ jobs:
       with:
         username: ${{secrets.DOCKERHUB_USERNAME}}
         password: ${{secrets.DOCKERHUB_TOKEN}}
-  
-    - name: Push Docker image
-      run: docker push rukeduoc/rentcar-back:latest .
-  
+        
     - name: Contruir y subir imagen
       uses: docker/build-push-action@v5
       with:
         context: .
         push: true
-        tags: ${{secrets.DOCKERHUB_USERNAME}}/rentcar-back:latest .
+        tags: ${{secrets.DOCKERHUB_USERNAME}}/rentcar-back:latest

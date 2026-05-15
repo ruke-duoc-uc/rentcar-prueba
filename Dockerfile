@@ -1,7 +1,6 @@
-FROM node:20-alpine
+FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
-COPY package.json ./
-RUN npm install
-COPY . .
+COPY --from=build /app/target/*.jar app.jar
+COPY --from=buildstage /app/target/*.jar app.jar
 EXPOSE 3306
-CMD ["node", "server.js"]
+ENTRYPOINT ["java","-jar","/app/bget.jar"]

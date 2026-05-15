@@ -1,7 +1,11 @@
 version: '3.8'
 services:
   backend:
-
+    build:
+    ports:
+      - database
+    environment:
+     - SPRING_DATASOURCE_ULR=mysql://database:3306/rentcar_db
   database:
     image:
     environment:
@@ -13,5 +17,5 @@ services:
     - "3306:3306"
     volumes:
     - mysql_data:/var/lib/mysql
-  volumes:
-    mysql_data:
+volumes:
+  mysql_data:
