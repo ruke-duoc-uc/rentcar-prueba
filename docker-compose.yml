@@ -1,18 +1,13 @@
 version: '3.8'
 services:
   backend:
-    build:
-    ports:
-      - database
-    environment:
-     - SPRING_DATASOURCE_ULR=mysql://database:3306/rentcar_db
-  database:
-    image:
-    environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: rentcar_db
-      MYSQL_USER: rentcar_user
-      MYSQL_PASSWORD: rentcar_pass
+    database:
+      image:
+      environment:
+        MYSQL_ROOT_PASSWORD: rootpassword
+        MYSQL_DATABASE: rentcar_db
+        MYSQL_USER: rentcar_user
+        MYSQL_PASSWORD: rentcar_pass
     ports:
     - "3306:3306"
     volumes:
