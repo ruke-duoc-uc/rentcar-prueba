@@ -15,7 +15,7 @@ services:
       MYSQL_DATABASE: rentcar_db
       MYSQL_USER: rentcar_user
       MYSQL_PASSWORD: rentcar_pass
-      ports:
+    ports:
       - "3306:3306"
   volumes:
     - mysql_data:/var/lib/mysql
