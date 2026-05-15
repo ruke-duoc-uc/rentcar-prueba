@@ -1,6 +1,12 @@
+FROM maven:3.9.6-eclipse-temurin-21-alpine AS build
+WORKDIR /app
+COPY pom.xml .
+RUN mvm dependency:go-offline -B
+COPY src ./src
+RUN mvm clean package -Dskiptest
 FROM eclipse-temurin:21-jre-alpine
 WORKDIR /app
 COPY --from=build /app/target/*.jar app.jar
 COPY --from=buildstage /app/target/*.jar app.jar
-EXPOSE 3306
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","/app/bget.jar"]
